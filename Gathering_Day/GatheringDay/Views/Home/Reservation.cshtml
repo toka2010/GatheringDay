@@ -1,0 +1,102 @@
+﻿@model  GatheringDay.Models.Reservation
+@{
+    ViewBag.Title = "Reservation";
+}
+<div class="book">
+    <div class="about-area   cover">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-7" id="row2">
+
+                    <div class="about-text2  reserv">
+                        <h2>Book Event</h2>
+                        @using (Html.BeginForm(actionName: "Reservation", controllerName: "Home", method: FormMethod.Post))
+                        {
+                    <div class="form-group row">
+                        <div class="col-sm-9">
+                            @Html.EditorFor(ww => ww.EventName, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = Session["EventName"], @readonly="readonly"  }  })
+                        
+                        </div>
+                        <div class="col-sm-9">
+
+
+
+                            @Html.EditorFor(ww => ww.numberOfPeople, additionalViewData: new
+                            {
+                                htmlAttributes = new
+                                {
+                                    @class = "form-control",
+                                    PlaceHolder = "Number of People",
+                                    Type = "number",
+                                    @min = "1"
+                       }
+                            })
+                            @Html.ValidationMessageFor(ww => ww.numberOfPeople, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                        </div>
+
+                        <div class="col-sm-9">
+                            @Html.EditorFor(ww => ww.EventDate, additionalViewData: new
+         {
+             htmlAttributes = new
+             {
+                 @class = "form-control",
+                 PlaceHolder = "Event Date",
+                 Type = "Date"
+    }
+         })
+                            @Html.ValidationMessageFor(ww => ww.EventDate, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                        </div>
+                        <div class="col-sm-9">
+                            @Html.EditorFor(ww => ww.StartTime, additionalViewData: new
+        {
+            htmlAttributes = new
+            {
+                @class = "form-control",
+                PlaceHolder = "Start Time",
+                Type = "Time"
+   }
+        })
+                            @Html.ValidationMessageFor(ww => ww.StartTime, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                        </div>
+                        <div class="col-sm-9">
+                            @Html.EditorFor(ww => ww.EndTime, additionalViewData: new
+        {
+            htmlAttributes = new
+            {
+                @class = "form-control",
+                PlaceHolder = "End Time",
+                Type = "Time"
+   }
+        })
+                            @Html.ValidationMessageFor(ww => ww.EndTime, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                        </div>
+
+                        @*<div class="col-sm-9">
+            <input type="number" class="form-control" id="inputEmail4" placeholder="Price">
+
+        </div>*@
+
+                        <div class="col-sm-9">
+
+                            <button type="submit" class="btn btn-primary">Send </button>
+                        </div>
+                        <div class="col-sm-9" style="margin:3%; margin-top:0%; margin-bottom:-2%; ">
+                            <label class="text-danger"> @Html.DisplayFor(w => w.ReservationrMsg) </label>
+                        </div>
+
+                    </div>
+                        }
+                            <!-- <a style="color:white;"> Go To Events</a>-->
+                        </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>

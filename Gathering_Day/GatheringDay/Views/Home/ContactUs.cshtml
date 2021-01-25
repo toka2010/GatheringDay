@@ -1,0 +1,63 @@
+﻿@model GatheringDay.Models.ContactUs
+@{
+    ViewBag.Title = "ContactUs";
+}
+
+<h2>ContactUs</h2>
+
+<div class="about-area">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5">
+
+                <div class="about-text2">
+                    <h2>Contact  Us</h2>
+                    @using (Html.BeginForm(actionName: "ContactUs", controllerName: "Home", method: FormMethod.Post, htmlAttributes: new { @class = "contactfrm" }))
+                    {
+
+                <div class="form-group row">
+                    <div class="col-sm-9">
+                        @Html.EditorFor(ww => ww.Name, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Name" } })
+                        @Html.ValidationMessageFor(ww => ww.Name, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                    </div>
+                    <div class="col-sm-9">
+
+                        @Html.EditorFor(ww => ww.Email, additionalViewData: new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Email" } })
+                        @Html.ValidationMessageFor(ww => ww.Email, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                    </div>
+
+                    <div class="col-sm-9">
+
+                        @Html.TextAreaFor(ww => ww.Message, new { @class = "form-control", PlaceHolder = " Message", @rows = 3 })
+                        @Html.ValidationMessageFor(ww => ww.Message, "", htmlAttributes: new { @class = "text-danger errmsg" })
+                    </div>
+
+                    <div class="col-sm-9">
+
+                        <button type="submit" class="btn btn-primary">Send </button>
+                    </div>
+                    <div class="col-sm-9">
+                        <label class="text-warning"> @Html.DisplayFor(w => w.ContacterrorMsg) </label>
+                    </div>
+
+                    </div>
+                    }
+                    <!-- <a style="color:white;"> Go To Events</a>-->
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-lg-offset-1">
+                <div class="about-img2">
+
+
+                    <img src="~/project image/22.PNG" />
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
